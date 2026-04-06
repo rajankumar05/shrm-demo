@@ -1,10 +1,10 @@
-/* header and nav layout */
+/* header and nav layout - white background, dark text matching shrm.org */
 header .nav-wrapper {
-  background-color: var(--color-secondary, #1b3c69);
+  background-color: #fff;
   width: 100%;
   z-index: 2;
   position: fixed;
-  box-shadow: 0 2px 8px rgb(0 0 0 / 15%);
+  border-bottom: 1px solid #e0e0e0;
 }
 
 header nav {
@@ -20,7 +20,7 @@ header nav {
   height: var(--nav-height);
   padding: 0 24px;
   font-family: var(--body-font-family);
-  color: #fff;
+  color: var(--text-color, #212529);
 }
 
 header nav[aria-expanded='true'] {
@@ -30,7 +30,7 @@ header nav[aria-expanded='true'] {
     'tools tools' var(--nav-height) / auto 1fr;
   overflow-y: auto;
   min-height: 100dvh;
-  background-color: var(--color-secondary, #1b3c69);
+  background-color: #fff;
 }
 
 @media (width >= 900px) {
@@ -57,18 +57,19 @@ header nav p {
   line-height: 1;
 }
 
+/* Links - black text */
 header nav a:any-link {
-  color: #fff;
+  color: #000;
   text-decoration: none;
-  transition: opacity 0.2s ease;
+  transition: color 0.2s ease;
 }
 
 header nav a:hover {
-  opacity: 0.85;
+  color: var(--color-primary, #3375b8);
   text-decoration: none;
 }
 
-/* hamburger */
+/* hamburger - dark lines */
 header nav .nav-hamburger {
   grid-area: hamburger;
   height: 22px;
@@ -83,7 +84,7 @@ header nav .nav-hamburger button {
   border-radius: 0;
   padding: 0;
   background-color: transparent;
-  color: #fff;
+  color: inherit;
   overflow: initial;
   text-overflow: initial;
   white-space: initial;
@@ -102,7 +103,7 @@ header nav .nav-hamburger-icon::before,
 header nav .nav-hamburger-icon::after {
   content: '';
   position: absolute;
-  background: #fff;
+  background: var(--text-color, #212529);
 }
 
 header nav[aria-expanded='false'] .nav-hamburger-icon,
@@ -110,7 +111,7 @@ header nav[aria-expanded='false'] .nav-hamburger-icon::before,
 header nav[aria-expanded='false'] .nav-hamburger-icon::after {
   height: 2px;
   border-radius: 2px;
-  background: #fff;
+  background: var(--text-color, #212529);
 }
 
 header nav[aria-expanded='false'] .nav-hamburger-icon::before {
@@ -149,7 +150,7 @@ header nav[aria-expanded='true'] .nav-hamburger-icon::after {
   }
 }
 
-/* brand */
+/* brand - SHRM logo in original colors (no filter) */
 header .nav-brand {
   grid-area: brand;
   flex-basis: 128px;
@@ -161,10 +162,9 @@ header .nav-brand {
 header nav .nav-brand img {
   width: 100px;
   height: auto;
-  filter: brightness(0) invert(1);
 }
 
-/* sections */
+/* sections - main nav links */
 header nav .nav-sections {
   grid-area: sections;
   flex: 1 1 auto;
@@ -186,6 +186,7 @@ header nav .nav-sections ul {
 
 header nav .nav-sections ul > li {
   font-weight: 600;
+  color: #000;
 }
 
 header nav .nav-sections ul > li > ul {
@@ -213,6 +214,7 @@ header nav .nav-sections ul > li > ul > li {
     cursor: pointer;
   }
 
+  /* Dropdown arrow - dark */
   header nav .nav-sections .nav-drop::after {
     content: '';
     display: inline-block;
@@ -222,7 +224,7 @@ header nav .nav-sections ul > li > ul > li {
     transform: rotate(135deg);
     width: 5px;
     height: 5px;
-    border: 2px solid #fff;
+    border: 2px solid currentcolor;
     border-radius: 0 1px 0 0;
     border-width: 2px 2px 0 0;
   }
@@ -249,6 +251,7 @@ header nav .nav-sections ul > li > ul > li {
     position: relative;
   }
 
+  /* Dropdown panel - white with shadow */
   header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded='true'] > ul {
     display: block;
     position: absolute;
@@ -269,7 +272,6 @@ header nav .nav-sections ul > li > ul > li {
 
   header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded='true'] > ul a:hover {
     color: var(--color-primary, #3375b8);
-    opacity: 1;
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li > ul::before {
@@ -294,20 +296,23 @@ header nav .nav-tools {
   grid-area: tools;
 }
 
-header nav .nav-tools a.button:any-link {
-  background-color: #fff;
-  color: var(--color-secondary, #1b3c69);
-  border-color: #fff;
+/* Become a Member - blue filled CTA */
+header nav .nav-tools a.button:any-link,
+header nav .nav-tools a.button.primary:any-link {
+  background-color: var(--color-primary, #3375b8);
+  color: #fff;
+  border-color: var(--color-primary, #3375b8);
   border-radius: var(--button-border-radius, 8px);
-  padding: 6px 16px;
+  padding: 8px 20px;
   font-size: var(--body-font-size-xs);
   font-weight: 600;
 }
 
-header nav .nav-tools a.button:hover {
-  background-color: var(--ice-blue, #ebf4fa);
-  border-color: var(--ice-blue, #ebf4fa);
-  opacity: 1;
+header nav .nav-tools a.button:hover,
+header nav .nav-tools a.button.primary:hover {
+  background-color: var(--color-secondary, #1b3c69);
+  border-color: var(--color-secondary, #1b3c69);
+  color: #fff;
 }
 
 header nav .nav-tools .default-content-wrapper {
