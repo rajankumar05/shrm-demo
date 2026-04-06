@@ -1,0 +1,62 @@
+/* Brands - "Our Brands" logo grid, light gray bg matching shrm.org footer area */
+.brands-container {
+  background-color: rgb(248 248 248);
+}
+
+.brands-container .brands-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+
+.brands .brands-grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 24px 32px;
+}
+
+.brands .brands-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.brands .brands-item:hover {
+  opacity: 0.75;
+}
+
+.brands .brands-item img {
+  height: 28px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+@media (width >= 600px) {
+  .brands .brands-grid {
+    gap: 24px 40px;
+  }
+
+  .brands .brands-item img {
+    height: 32px;
+  }
+}
+
+@media (width >= 900px) {
+  .brands-container .brands-wrapper {
+    padding: 40px 32px;
+  }
+
+  .brands .brands-grid {
+    gap: 24px 48px;
+    justify-content: flex-start;
+  }
+
+  .brands .brands-item img {
+    height: 36px;
+  }
+}
