@@ -1,0 +1,48 @@
+- [![SHRM](/icons/shrm-logo.svg)](/home)
+
+---
+
+- **Membership**
+  - [Membership](/membership)
+  - [Professional](/membership/hr-professional)
+  - [Student](/membership/students)
+  - [Global](/membership/global)
+  - [Executive](/membership/executive-membership)
+- **Learning**
+  - [SHRM Certification](/credentials/certification)
+  - [SHRM-CP](/credentials/certification/shrm-cp)
+  - [SHRM-SCP](/credentials/certification/shrm-scp)
+  - [Prepare for the Exam](/credentials/certification/exam-preparation)
+  - [Recertification](/credentials/certification/recertification)
+  - [Seminars](/events-education/education/seminars)
+  - [eLearning](/events-education/education/elearning)
+- **Attend**
+  - [Events](/events-education/events)
+  - [SHRM26 Annual Conference](https://annual.shrm.org)
+  - [Talent 2026](https://conference.shrm.org/talent-conference)
+  - [Linkage Institute 2026](https://conferences.shrm.org/linkage-institute)
+  - [State Conferences](/events-education/events/state-conferences)
+  - [Webinars](/events-education/education/webinars)
+- **Resources**
+  - [Ask an HR Advisor](/topics-tools/ask-an-advisor)
+  - [HR Research](/topics-tools/research)
+  - [Legal & Compliance](/topics-tools/employment-law-compliance)
+  - [Latest News & Trends](/topics-tools/news)
+  - [Tools & Guides](/topics-tools/tools)
+  - [HR Topics](/topics-tools/topics)
+- **Community**
+  - [Find a SHRM Chapter](/community/chapters)
+  - [SHRM Connect](/community/shrm-connect)
+  - [Membership Councils](/community/membership-councils)
+  - [Volunteers](/community/volunteer)
+- **Shop**
+  - [SHRM Store](/shop)
+  - [SHRM Memberships](/shop/membership)
+  - [SHRM Certification](/shop/certification)
+  - [Seminars](/shop/education)
+  - [Books](/shop/category.html/education#books)
+
+---
+
+- [Sign In](/saml_login)
+- [Become a Member](https://www.shrm.org/shop/membership)

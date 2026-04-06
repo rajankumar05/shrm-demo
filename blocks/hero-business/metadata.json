@@ -1,0 +1,31 @@
+{
+  "variantName": "hero-business",
+  "baseBlock": "hero",
+  "version": "1.0.0",
+  "created": "2026-04-06T01:05:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.shrm.org/home",
+    "originPage": "SHRM homepage",
+    "blockPosition": "bottom"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "accent",
+    "density": "spacious",
+    "purpose": "business-hero",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "image + heading + paragraph + CTA",
+    "buttonCount": 1,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": ["business service promotions", "enterprise solutions"],
+    "notSuitableFor": ["blog pages", "news sections"]
+  },
+  "usage": {
+    "pagesUsing": ["/content/home"],
+    "reuseCount": 1,
+    "lastUsed": "2026-04-06T01:05:00.000Z"
+  }
+}

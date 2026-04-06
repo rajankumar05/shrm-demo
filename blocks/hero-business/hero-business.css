@@ -1,0 +1,124 @@
+/* Hero Business - SHRM Business hero with orange gradient, two-column layout */
+.hero-business-container .hero-business-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+.hero-business {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  min-height: 280px;
+  background: linear-gradient(135deg, var(--color-accent-orange), #b2480c);
+  overflow: hidden;
+}
+
+.hero-business > div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.hero-business picture {
+  display: block;
+  line-height: 0;
+  width: 100%;
+}
+
+.hero-business img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+}
+
+.hero-business h1,
+.hero-business h2,
+.hero-business h3,
+.hero-business h4,
+.hero-business h5,
+.hero-business h6 {
+  color: var(--text-color-inverse);
+  margin-top: 0;
+}
+
+.hero-business h2 {
+  font-size: var(--heading-font-size-xl);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.hero-business p {
+  color: var(--text-color-inverse);
+  font-size: var(--body-font-size-m);
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+/* Text content area */
+.hero-business > div > div:last-child {
+  padding: 32px 24px;
+}
+
+.hero-business a.button.primary,
+.hero-business a.button:any-link {
+  border-color: var(--text-color-inverse);
+  background-color: var(--text-color-inverse);
+  color: var(--color-accent-orange);
+  font-weight: var(--button-font-weight);
+}
+
+.hero-business a.button.primary:hover,
+.hero-business a.button:hover {
+  background-color: var(--ice-blue);
+  border-color: var(--ice-blue);
+  color: var(--color-accent-orange);
+}
+
+.hero-business a.button.secondary {
+  border-color: var(--text-color-inverse);
+  background-color: transparent;
+  color: var(--text-color-inverse);
+}
+
+.hero-business a.button.secondary:hover {
+  background-color: rgb(255 255 255 / 15%);
+}
+
+@media (width >= 900px) {
+  .hero-business {
+    min-height: 360px;
+  }
+
+  .hero-business > div {
+    flex-direction: row;
+    align-items: stretch;
+    max-width: unset;
+  }
+
+  /* Image column - 40% */
+  .hero-business > div > div:first-child {
+    flex: 0 0 40%;
+    position: relative;
+  }
+
+  .hero-business > div > div:first-child picture {
+    position: absolute;
+    inset: 0;
+  }
+
+  /* Text column - 60% */
+  .hero-business > div > div:last-child {
+    flex: 0 0 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 48px 48px 48px 40px;
+  }
+
+  .hero-business h2 {
+    font-size: 36px;
+  }
+}

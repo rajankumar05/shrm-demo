@@ -1,0 +1,31 @@
+{
+  "variantName": "cards-events",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-04-06T01:05:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.shrm.org/home",
+    "originPage": "SHRM homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "normal",
+    "purpose": "event-cards",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "4 cards with image + title + description + CTA",
+    "buttonCount": 4,
+    "imageCount": 4
+  },
+  "reuseGuidance": {
+    "suitableFor": ["event listings", "conference cards"],
+    "notSuitableFor": ["simple text listings", "statistics"]
+  },
+  "usage": {
+    "pagesUsing": ["/content/home"],
+    "reuseCount": 1,
+    "lastUsed": "2026-04-06T01:05:00.000Z"
+  }
+}

@@ -1,0 +1,187 @@
+/* Carousel Promo - Promotional carousel with dark background slides */
+.carousel-promo-container .carousel-promo-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+.carousel-promo {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--dark-color);
+}
+
+.carousel-promo .carousel-promo-slides-container {
+  position: relative;
+}
+
+.carousel-promo .carousel-promo-slides {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.carousel-promo .carousel-promo-slides::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-promo .carousel-promo-slide {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  min-height: 300px;
+  background-color: var(--dark-color);
+}
+
+.carousel-promo .carousel-promo-slide-image {
+  position: relative;
+}
+
+.carousel-promo .carousel-promo-slide-image picture {
+  display: block;
+  line-height: 0;
+}
+
+.carousel-promo .carousel-promo-slide-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.carousel-promo .carousel-promo-slide-content {
+  padding: 32px 24px;
+  color: var(--text-color-inverse);
+}
+
+.carousel-promo .carousel-promo-slide-content h1,
+.carousel-promo .carousel-promo-slide-content h2,
+.carousel-promo .carousel-promo-slide-content h3,
+.carousel-promo .carousel-promo-slide-content h4,
+.carousel-promo .carousel-promo-slide-content h5,
+.carousel-promo .carousel-promo-slide-content h6 {
+  color: var(--text-color-inverse);
+  margin-top: 0;
+}
+
+.carousel-promo .carousel-promo-slide-content p {
+  color: var(--text-color-inverse);
+  line-height: 1.6;
+}
+
+.carousel-promo .carousel-promo-slide-content a.button:any-link {
+  border-color: var(--text-color-inverse);
+  background-color: var(--text-color-inverse);
+  color: var(--color-secondary);
+}
+
+.carousel-promo .carousel-promo-slide-content a.button:hover {
+  background-color: var(--ice-blue);
+  border-color: var(--ice-blue);
+}
+
+.carousel-promo .carousel-promo-slide-content a.button.secondary {
+  border-color: var(--text-color-inverse);
+  background-color: transparent;
+  color: var(--text-color-inverse);
+}
+
+.carousel-promo .carousel-promo-slide-content a.button.secondary:hover {
+  background-color: rgb(255 255 255 / 15%);
+}
+
+/* Navigation dots */
+.carousel-promo .carousel-promo-slide-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  list-style: none;
+  margin: 0;
+  padding: 16px 0 24px;
+  background-color: var(--dark-color);
+}
+
+.carousel-promo .carousel-promo-slide-indicator button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid var(--text-color-inverse);
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.carousel-promo .carousel-promo-slide-indicator button[disabled] {
+  background: var(--text-color-inverse);
+  cursor: default;
+}
+
+/* Navigation arrows */
+.carousel-promo .carousel-promo-navigation-buttons {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 12px;
+  box-sizing: border-box;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.carousel-promo .carousel-promo-navigation-buttons button {
+  pointer-events: auto;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background: rgb(0 0 0 / 50%);
+  color: var(--text-color-inverse);
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+}
+
+.carousel-promo .carousel-promo-navigation-buttons button:hover {
+  background: rgb(0 0 0 / 70%);
+}
+
+.carousel-promo .carousel-promo-slide-indicator button:hover:not([disabled]) {
+  background: rgb(255 255 255 / 50%);
+}
+
+@media (width >= 900px) {
+  .carousel-promo .carousel-promo-slide {
+    flex-direction: row;
+    min-height: 400px;
+  }
+
+  .carousel-promo .carousel-promo-slide-image {
+    flex: 1;
+    position: relative;
+  }
+
+  .carousel-promo .carousel-promo-slide-image img {
+    height: 100%;
+    position: absolute;
+    inset: 0;
+  }
+
+  .carousel-promo .carousel-promo-slide-content {
+    flex: 1;
+    padding: 48px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "status": "success",
+  "url": "https://www.shrm.org/home",
+  "path": "home",
+  "timestamp": "2026-04-06T01:23:04.559Z",
+  "title": "SHRM Home - The Voice of All Things Work",
+  "template": "homepage",
+  "blocks": [
+    "hero-banner",
+    "carousel-promo",
+    "cards-news",
+    "cards-stats",
+    "tabs-benefits",
+    "hero-cta",
+    "cards-tools",
+    "hero-cert",
+    "cards-events",
+    "hero-business",
+    "carousel-logos"
+  ]
+}

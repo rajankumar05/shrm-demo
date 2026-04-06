@@ -1,0 +1,147 @@
+{
+  "templates": [
+    {
+      "name": "homepage",
+      "urls": [
+        "https://www.shrm.org/home"
+      ],
+      "description": "SHRM homepage with hero, featured content, and promotional sections",
+      "blocks": [
+        {
+          "name": "hero-banner",
+          "instances": ["#homehero"]
+        },
+        {
+          "name": "carousel-promo",
+          "instances": ["#carousel-6016e49ff8"]
+        },
+        {
+          "name": "cards-news",
+          "instances": [".newsfeed.list.withImage"]
+        },
+        {
+          "name": "cards-stats",
+          "instances": [".metricicon"]
+        },
+        {
+          "name": "tabs-benefits",
+          "instances": [".verticalTabs.tabs"]
+        },
+        {
+          "name": "hero-cta",
+          "instances": [".video-background.color-overlay"]
+        },
+        {
+          "name": "cards-tools",
+          "instances": [".newsfeed.list.withoutImage"]
+        },
+        {
+          "name": "hero-cert",
+          "instances": [".hero.bg-green"]
+        },
+        {
+          "name": "cards-events",
+          "instances": ["#container-b03f3a4eaf"]
+        },
+        {
+          "name": "hero-business",
+          "instances": [".hero.bg-orange"]
+        },
+        {
+          "name": "carousel-logos",
+          "instances": [".ticker-container"]
+        }
+      ],
+      "sections": [
+        {
+          "id": "section-1",
+          "name": "Hero",
+          "selector": "#homehero",
+          "style": null,
+          "blocks": ["hero-banner"],
+          "defaultContent": []
+        },
+        {
+          "id": "section-2",
+          "name": "Promotional Carousel",
+          "selector": ".video-background.color-overlay-gradient",
+          "style": "dark",
+          "blocks": ["carousel-promo"],
+          "defaultContent": []
+        },
+        {
+          "id": "section-3",
+          "name": "Today's Top Workplace News",
+          "selector": "#container-e8b2f0146a",
+          "style": null,
+          "blocks": ["cards-news"],
+          "defaultContent": ["#title-5b9fc5d4e3", "#text-a38e945f20"]
+        },
+        {
+          "id": "section-4",
+          "name": "Impact Stats",
+          "selector": "#container-4ba180259b",
+          "style": "dark",
+          "blocks": ["cards-stats"],
+          "defaultContent": ["#title-daf55258c4", "#text-cddf6eef86", "#button-4a1ce903c5"]
+        },
+        {
+          "id": "section-5",
+          "name": "Premier Benefits",
+          "selector": "#container-2a40fd32e1",
+          "style": null,
+          "blocks": ["tabs-benefits"],
+          "defaultContent": ["#title-a43e3bb7d0", "#text-2f7017193e"]
+        },
+        {
+          "id": "section-6",
+          "name": "BEAM Framework CTA",
+          "selector": ".video-background.color-overlay",
+          "style": null,
+          "blocks": ["hero-cta"],
+          "defaultContent": []
+        },
+        {
+          "id": "section-7",
+          "name": "Top Tools and Programs",
+          "selector": "#container-4e69f443ad",
+          "style": null,
+          "blocks": ["cards-tools"],
+          "defaultContent": ["#title-81e6a0dc5d", "#text-b03a8e34be"]
+        },
+        {
+          "id": "section-8",
+          "name": "SHRM Certification",
+          "selector": ".hero.bg-green",
+          "style": null,
+          "blocks": ["hero-cert"],
+          "defaultContent": []
+        },
+        {
+          "id": "section-9",
+          "name": "Premier Events",
+          "selector": "#container-b03f3a4eaf",
+          "style": null,
+          "blocks": ["cards-events"],
+          "defaultContent": ["#title-36649b4c90", "#text-8ad5715611"]
+        },
+        {
+          "id": "section-10",
+          "name": "SHRM Business",
+          "selector": "#container-3e5aa060d0",
+          "style": null,
+          "blocks": ["hero-business"],
+          "defaultContent": []
+        },
+        {
+          "id": "section-11",
+          "name": "Trusted By",
+          "selector": "#video-background-70353e2857",
+          "style": null,
+          "blocks": ["carousel-logos"],
+          "defaultContent": ["#title-9b9206e1ac"]
+        }
+      ]
+    }
+  ]
+}

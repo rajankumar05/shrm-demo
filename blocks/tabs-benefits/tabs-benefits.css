@@ -1,0 +1,122 @@
+/* Tabs Benefits - Vertical tabs with content panel */
+.tabs-benefits {
+  display: flex;
+  flex-direction: column;
+}
+
+.tabs-benefits .tabs-benefits-list {
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  padding: 0;
+  margin: 0 0 24px;
+  list-style: none;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.tabs-benefits .tabs-benefits-list::-webkit-scrollbar {
+  display: none;
+}
+
+.tabs-benefits .tabs-benefits-tab {
+  padding: 14px 20px;
+  border: none;
+  border-bottom: 3px solid transparent;
+  background: var(--light-color);
+  cursor: pointer;
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-s);
+  font-weight: 600;
+  color: var(--text-color);
+  white-space: nowrap;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.tabs-benefits .tabs-benefits-tab:hover {
+  background: var(--ice-blue);
+  color: var(--color-primary);
+}
+
+.tabs-benefits .tabs-benefits-tab[aria-selected="true"] {
+  border-bottom-color: var(--color-primary);
+  background: var(--background-color);
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.tabs-benefits .tabs-benefits-panel {
+  padding: 24px 0;
+  background: var(--background-color);
+}
+
+.tabs-benefits .tabs-benefits-panel[aria-hidden="true"] {
+  display: none;
+}
+
+.tabs-benefits .tabs-benefits-panel h2,
+.tabs-benefits .tabs-benefits-panel h3,
+.tabs-benefits .tabs-benefits-panel h4 {
+  margin-top: 0;
+  color: var(--text-color-dark);
+}
+
+.tabs-benefits .tabs-benefits-panel p {
+  font-size: var(--body-font-size-s);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+.tabs-benefits .tabs-benefits-panel img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.tabs-benefits .tabs-benefits-panel a.button:any-link {
+  margin-top: 16px;
+}
+
+@media (width >= 900px) {
+  .tabs-benefits {
+    flex-direction: row;
+    gap: 0;
+    min-height: 400px;
+  }
+
+  .tabs-benefits .tabs-benefits-list {
+    flex-direction: column;
+    min-width: 260px;
+    max-width: 300px;
+    margin: 0;
+    overflow-x: visible;
+    border-right: 1px solid #e0e0e0;
+  }
+
+  .tabs-benefits .tabs-benefits-tab {
+    border-bottom: none;
+    border-left: 3px solid transparent;
+    border-right: none;
+    text-align: left;
+    padding: 16px 24px;
+    font-size: var(--heading-font-size-xs);
+  }
+
+  .tabs-benefits .tabs-benefits-tab[aria-selected="true"] {
+    border-left-color: var(--color-primary);
+    border-bottom: none;
+    background: var(--background-color);
+    font-weight: 700;
+    color: var(--color-primary);
+  }
+
+  .tabs-benefits .tabs-benefits-tab:hover {
+    background: var(--ice-blue);
+  }
+
+  .tabs-benefits .tabs-benefits-panel {
+    flex: 1;
+    padding: 24px 32px;
+  }
+}
