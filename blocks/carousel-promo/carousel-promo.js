@@ -1,131 +1,108 @@
-function updateActiveSlide(slide) {
-  const block = slide.closest('.carousel-promo');
-  if (!block) return;
-  const slideIndex = parseInt(slide.dataset.slideIndex, 10);
-  block.dataset.activeSlide = slideIndex;
-
+function showSlide(block, slideIndex) {
   const slides = block.querySelectorAll('.carousel-promo-slide');
-  slides.forEach((aSlide, idx) => {
-    aSlide.setAttribute('aria-hidden', idx !== slideIndex);
-    aSlide.querySelectorAll('a').forEach((link) => {
-      if (idx !== slideIndex) {
-        link.setAttribute('tabindex', '-1');
-      } else {
-        link.removeAttribute('tabindex');
-      }
+  let idx = slideIndex;
+  if (idx < 0) idx = slides.length - 1;
+  if (idx >= slides.length) idx = 0;
+
+  block.dataset.activeSlide = idx;
+
+  slides.forEach((slide, i) => {
+    slide.setAttribute('aria-hidden', i !== idx);
+    slide.querySelectorAll('a').forEach((link) => {
+      if (i !== idx) link.setAttribute('tabindex', '-1');
+      else link.removeAttribute('tabindex');
     });
   });
 
-  const indicators = block.querySelectorAll('.carousel-promo-slide-indicator');
-  indicators.forEach((indicator, idx) => {
-    if (idx !== slideIndex) {
-      indicator.querySelector('button').removeAttribute('disabled');
-    } else {
-      indicator.querySelector('button').setAttribute('disabled', 'true');
-    }
-  });
-}
-
-function showSlide(block, slideIndex = 0) {
-  const slides = block.querySelectorAll('.carousel-promo-slide');
-  let realSlideIndex = slideIndex;
-  if (realSlideIndex < 0) realSlideIndex = slides.length - 1;
-  if (realSlideIndex >= slides.length) realSlideIndex = 0;
-  const activeSlide = slides[realSlideIndex];
-  activeSlide.querySelectorAll('a').forEach((link) => link.removeAttribute('tabindex'));
-  block.querySelector('.carousel-promo-slides').scrollTo({
-    top: 0,
-    left: activeSlide.offsetLeft,
-    behavior: 'smooth',
-  });
-}
-
-function bindEvents(block) {
-  const slideIndicators = block.querySelector('.carousel-promo-slide-indicators');
-  if (!slideIndicators) return;
-  slideIndicators.querySelectorAll('button').forEach((button) => {
-    button.addEventListener('click', (e) => {
-      const indicator = e.currentTarget.parentElement;
-      showSlide(block, parseInt(indicator.dataset.targetSlide, 10));
-    });
+  const indicators = block.querySelectorAll('.carousel-promo-indicator');
+  indicators.forEach((ind, i) => {
+    ind.classList.toggle('active', i === idx);
   });
 
-  block.querySelector('.slide-prev').addEventListener('click', () => {
-    showSlide(block, parseInt(block.dataset.activeSlide, 10) - 1);
-  });
-  block.querySelector('.slide-next').addEventListener('click', () => {
-    showSlide(block, parseInt(block.dataset.activeSlide, 10) + 1);
-  });
-
-  const slideObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) updateActiveSlide(entry.target);
-    });
-  }, { threshold: 0.5 });
-  block.querySelectorAll('.carousel-promo-slide').forEach((slide) => {
-    slideObserver.observe(slide);
-  });
-}
-
-function createSlide(row, slideIndex) {
-  const slide = document.createElement('li');
-  slide.dataset.slideIndex = slideIndex;
-  slide.setAttribute('id', `carousel-promo-slide-${slideIndex}`);
-  slide.classList.add('carousel-promo-slide');
-  slide.setAttribute('role', 'tabpanel');
-  slide.setAttribute('aria-hidden', slideIndex !== 0);
-
-  row.querySelectorAll(':scope > div').forEach((column, colIdx) => {
-    column.classList.add(colIdx === 0 ? 'carousel-promo-slide-image' : 'carousel-promo-slide-content');
-  });
-
-  slide.append(...row.childNodes);
-  return slide;
+  const slidesEl = block.querySelector('.carousel-promo-slides');
+  slidesEl.scrollTo({ left: slides[idx].offsetLeft, behavior: 'smooth' });
 }
 
 export default function decorate(block) {
-  const rows = [...block.children];
-  const isSingleSlide = rows.length < 2;
-  const placeholderClass = isSingleSlide ? 'carousel-promo-single-slide' : '';
+  // Filter out section-metadata rows
+  const rows = [...block.children].filter(
+    (row) => !row.classList.contains('section-metadata'),
+  );
+
+  if (rows.length === 0) return;
 
   block.setAttribute('role', 'region');
   block.setAttribute('aria-roledescription', 'Carousel');
-
-  const container = document.createElement('div');
-  container.classList.add('carousel-promo-slides-container');
-
-  const slidesWrapper = document.createElement('ul');
-  slidesWrapper.classList.add('carousel-promo-slides');
   block.dataset.activeSlide = 0;
 
-  const slideIndicators = document.createElement('ol');
-  slideIndicators.classList.add('carousel-promo-slide-indicators');
+  // Build slides
+  const slidesWrapper = document.createElement('ul');
+  slidesWrapper.classList.add('carousel-promo-slides');
+
+  const indicators = document.createElement('div');
+  indicators.classList.add('carousel-promo-indicators');
 
   rows.forEach((row, idx) => {
-    const slide = createSlide(row, idx);
-    slidesWrapper.append(slide);
+    const slide = document.createElement('li');
+    slide.classList.add('carousel-promo-slide');
+    slide.dataset.slideIndex = idx;
+    slide.setAttribute('aria-hidden', idx !== 0);
 
-    const indicator = document.createElement('li');
-    indicator.classList.add('carousel-promo-slide-indicator');
-    indicator.dataset.targetSlide = idx;
-    indicator.innerHTML = `<button type="button" aria-label="Show Slide ${idx + 1} of ${rows.length}"><span></span></button>`;
-    slideIndicators.append(indicator);
+    // First div = image, second div = content
+    const divs = row.querySelectorAll(':scope > div');
+    divs.forEach((div, colIdx) => {
+      div.classList.add(colIdx === 0 ? 'carousel-promo-slide-image' : 'carousel-promo-slide-content');
+    });
+    while (row.firstChild) slide.appendChild(row.firstChild);
+    slidesWrapper.appendChild(slide);
+
+    // Indicator dot
+    const dot = document.createElement('button');
+    dot.classList.add('carousel-promo-indicator');
+    if (idx === 0) dot.classList.add('active');
+    dot.setAttribute('aria-label', `Slide ${idx + 1}`);
+    dot.addEventListener('click', () => showSlide(block, idx));
+    indicators.appendChild(dot);
+
+    row.remove();
   });
-  container.append(slidesWrapper);
 
-  block.prepend(slideIndicators);
-  block.prepend(container);
+  // Container with nav arrows
+  const container = document.createElement('div');
+  container.classList.add('carousel-promo-container');
 
-  if (!isSingleSlide) {
-    const nav = document.createElement('div');
-    nav.classList.add('carousel-promo-navigation-buttons');
-    nav.innerHTML = `
-      <button type="button" class="slide-prev" aria-label="Previous Slide"></button>
-      <button type="button" class="slide-next" aria-label="Next Slide"></button>
-    `;
-    container.append(nav);
-    bindEvents(block);
-  }
+  const prevBtn = document.createElement('button');
+  prevBtn.classList.add('carousel-promo-prev');
+  prevBtn.setAttribute('aria-label', 'Previous');
+  prevBtn.addEventListener('click', () => {
+    showSlide(block, parseInt(block.dataset.activeSlide, 10) - 1);
+  });
 
-  if (placeholderClass) block.classList.add(placeholderClass);
+  const nextBtn = document.createElement('button');
+  nextBtn.classList.add('carousel-promo-next');
+  nextBtn.setAttribute('aria-label', 'Next');
+  nextBtn.addEventListener('click', () => {
+    showSlide(block, parseInt(block.dataset.activeSlide, 10) + 1);
+  });
+
+  container.appendChild(prevBtn);
+  container.appendChild(slidesWrapper);
+  container.appendChild(nextBtn);
+
+  block.textContent = '';
+  block.appendChild(container);
+  block.appendChild(indicators);
+
+  // Auto-play every 5 seconds
+  let autoPlay = setInterval(() => {
+    showSlide(block, parseInt(block.dataset.activeSlide, 10) + 1);
+  }, 5000);
+
+  // Pause on hover
+  block.addEventListener('mouseenter', () => clearInterval(autoPlay));
+  block.addEventListener('mouseleave', () => {
+    autoPlay = setInterval(() => {
+      showSlide(block, parseInt(block.dataset.activeSlide, 10) + 1);
+    }, 5000);
+  });
 }
