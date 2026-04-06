@@ -1,4 +1,4 @@
-/* Hero Cert - Certification hero with green gradient, two-column layout */
+/* Hero Cert - Green gradient, image left, white text right */
 .hero-cert-container .hero-cert-wrapper {
   max-width: unset;
   padding: 0;
@@ -8,123 +8,121 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: 0;
-  min-height: 280px;
-  background: linear-gradient(135deg, var(--color-accent-green), #4c5f27);
+  background: linear-gradient(135deg, #687849, #4c5f27);
   overflow: hidden;
 }
 
-.hero-cert > div {
-  display: flex;
-  flex-direction: column;
+/* Image column */
+.hero-cert .hero-cert-image {
   width: 100%;
-}
-
-.hero-cert picture {
-  display: block;
   line-height: 0;
-  width: 100%;
 }
 
-.hero-cert img {
-  object-fit: cover;
+.hero-cert .hero-cert-image img {
   width: 100%;
   height: 100%;
-  min-height: 200px;
+  min-height: 240px;
+  object-fit: cover;
+  display: block;
 }
 
-.hero-cert h1,
-.hero-cert h2,
-.hero-cert h3,
-.hero-cert h4,
-.hero-cert h5,
-.hero-cert h6 {
-  color: var(--text-color-inverse);
-  margin-top: 0;
-}
-
-.hero-cert h2 {
-  font-size: var(--heading-font-size-xl);
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 16px;
-}
-
-.hero-cert p {
-  color: var(--text-color-inverse);
-  font-size: var(--body-font-size-m);
-  line-height: 1.6;
-  margin-bottom: 12px;
-}
-
-/* Text content area */
-.hero-cert > div > div:last-child {
+/* Content column - white text */
+.hero-cert .hero-cert-content {
   padding: 32px 24px;
 }
 
-/* Buttons side by side */
-.hero-cert .button-wrapper {
+.hero-cert .hero-cert-content h2 {
+  color: #fff;
+  font-size: var(--heading-font-size-xl);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.hero-cert .hero-cert-content p {
+  color: rgb(255 255 255 / 90%);
+  font-size: var(--body-font-size-s);
+  line-height: 1.6;
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.hero-cert .hero-cert-content a:any-link {
+  color: #fff;
+}
+
+/* CTA buttons - white filled primary, white outline secondary */
+.hero-cert .button-container {
   display: inline-block;
   margin-right: 8px;
   margin-bottom: 8px;
 }
 
-.hero-cert a.button.primary,
 .hero-cert a.button:any-link {
-  border-color: var(--text-color-inverse);
-  background-color: var(--text-color-inverse);
-  color: var(--color-accent-green);
-  font-weight: var(--button-font-weight);
+  background-color: #fff;
+  border-color: #fff;
+  color: #4c5f27;
+  font-weight: 600;
+  padding: 12px 28px;
+  border-radius: var(--button-border-radius, 8px);
 }
 
-.hero-cert a.button.primary:hover,
 .hero-cert a.button:hover {
-  background-color: var(--ice-blue);
-  border-color: var(--ice-blue);
+  background-color: rgb(255 255 255 / 85%);
+  border-color: rgb(255 255 255 / 85%);
 }
 
-.hero-cert a.button.secondary {
-  border-color: var(--text-color-inverse);
+.hero-cert a.button:any-link::after {
+  content: '\203A';
+  margin-left: 8px;
+  font-size: 1.3em;
+  line-height: 0;
+}
+
+/* Second button - white outline */
+.hero-cert .button-container:last-of-type a.button:any-link {
   background-color: transparent;
-  color: var(--text-color-inverse);
+  border: 2px solid #fff;
+  color: #fff;
 }
 
-.hero-cert a.button.secondary:hover {
+.hero-cert .button-container:last-of-type a.button:hover {
   background-color: rgb(255 255 255 / 15%);
+  border-color: #fff;
 }
 
+/* Desktop - two columns: image 40% left, text 60% right */
 @media (width >= 900px) {
   .hero-cert {
-    min-height: 360px;
-  }
-
-  .hero-cert > div {
     flex-direction: row;
-    align-items: stretch;
-    max-width: unset;
+    min-height: 400px;
   }
 
-  /* Image column - 40% */
-  .hero-cert > div > div:first-child {
+  .hero-cert .hero-cert-image {
     flex: 0 0 40%;
     position: relative;
   }
 
-  .hero-cert > div > div:first-child picture {
+  .hero-cert .hero-cert-image img {
     position: absolute;
     inset: 0;
+    min-height: 100%;
   }
 
-  /* Text column - 60% */
-  .hero-cert > div > div:last-child {
+  .hero-cert .hero-cert-content {
     flex: 0 0 60%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 48px 48px 48px 40px;
+    padding: 48px 56px 48px 48px;
   }
 
-  .hero-cert h2 {
+  .hero-cert .hero-cert-content h2 {
     font-size: 36px;
+  }
+
+  .hero-cert .hero-cert-content p {
+    font-size: 18px;
   }
 }
