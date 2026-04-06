@@ -1,10 +1,6 @@
-/* Carousel Promo - 3-slide promotional carousel, dark navy background */
+/* Carousel Promo - matching shrm.org promotional carousel */
 
-/* Reset wrapper for full-width */
-.carousel-promo-container {
-  background-color: var(--color-secondary, #1b3c69);
-}
-
+/* Full-width wrapper */
 .carousel-promo-container .carousel-promo-wrapper {
   max-width: unset;
   padding: 0;
@@ -13,7 +9,9 @@
 .carousel-promo {
   position: relative;
   overflow: hidden;
-  color: #fff;
+  border-radius: 15px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 /* Container with arrows + slides */
@@ -21,8 +19,6 @@
   position: relative;
   display: flex;
   align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
 }
 
 /* Slides wrapper */
@@ -43,13 +39,14 @@
   display: none;
 }
 
-/* Each slide - two-column: image left, text right */
+/* Each slide - dark navy bg */
 .carousel-promo .carousel-promo-slide {
   flex: 0 0 100%;
   scroll-snap-align: start;
   display: flex;
   flex-direction: column;
-  min-height: 280px;
+  min-height: 300px;
+  background-color: #1b3c69;
 }
 
 .carousel-promo .carousel-promo-slide[aria-hidden="true"] {
@@ -68,25 +65,32 @@
   display: block;
 }
 
-/* Slide content - white text */
+/* Slide content */
 .carousel-promo .carousel-promo-slide-content {
   padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.carousel-promo .carousel-promo-slide-content img {
+/* Logo image inside content (e.g. SHRM26 logo) */
+.carousel-promo .carousel-promo-slide-content p img {
   max-height: 40px;
   width: auto;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
+/* Heading - white, bold, uppercase */
 .carousel-promo .carousel-promo-slide-content h2 {
   color: #fff;
-  font-size: 24px;
+  font-size: 26px;
   font-weight: 700;
-  line-height: 1.2;
-  margin: 0 0 12px;
+  line-height: 1.3;
+  text-transform: uppercase;
+  margin: 0 0 16px;
 }
 
+/* Body text */
 .carousel-promo .carousel-promo-slide-content p {
   color: rgb(255 255 255 / 85%);
   font-size: 16px;
@@ -94,11 +98,11 @@
   margin: 0 0 12px;
 }
 
-/* CTA button - white filled */
+/* CTA button - BLUE filled, white text */
 .carousel-promo a.button:any-link {
-  background-color: #fff;
+  background-color: #3375b8;
   border: 0 none;
-  color: #222;
+  color: #fff;
   font-weight: 600;
   font-size: 20px;
   line-height: 28px;
@@ -114,40 +118,51 @@
 }
 
 .carousel-promo a.button:hover {
-  background-color: rgb(255 255 255 / 85%);
-  color: #222;
+  background-color: #2a6199;
+  color: #fff;
 }
 
-/* Prev / Next arrows */
+/* Prev / Next arrows - semi-transparent white circles */
 .carousel-promo .carousel-promo-prev,
 .carousel-promo .carousel-promo-next {
   flex: 0 0 auto;
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   border: none;
   border-radius: 50%;
-  background: rgb(255 255 255 / 20%);
-  color: #fff;
+  background: rgb(255 255 255 / 90%);
+  color: #000;
   cursor: pointer;
   font-size: 0;
-  position: relative;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
   transition: background-color 0.2s ease;
   display: none;
 }
 
-.carousel-promo .carousel-promo-prev:hover,
-.carousel-promo .carousel-promo-next:hover {
-  background: rgb(255 255 255 / 40%);
+.carousel-promo .carousel-promo-prev {
+  left: 12px;
 }
 
-/* Arrow icons via pseudo-elements */
+.carousel-promo .carousel-promo-next {
+  right: 12px;
+}
+
+.carousel-promo .carousel-promo-prev:hover,
+.carousel-promo .carousel-promo-next:hover {
+  background: #fff;
+}
+
+/* Arrow icons */
 .carousel-promo .carousel-promo-prev::after,
 .carousel-promo .carousel-promo-next::after {
   content: '';
   display: block;
-  width: 10px;
-  height: 10px;
-  border: 2px solid #fff;
+  width: 8px;
+  height: 8px;
+  border: 2px solid #000;
   border-width: 2px 2px 0 0;
   position: absolute;
   top: 50%;
@@ -163,49 +178,48 @@
   left: calc(50% - 2px);
 }
 
-/* Indicator dots */
+/* Indicator dots - white, size-based active/inactive */
 .carousel-promo .carousel-promo-indicators {
   display: flex;
   justify-content: center;
-  gap: 10px;
-  padding: 16px 0 24px;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 0 20px;
+  background-color: #1b3c69;
+  border-radius: 0 0 15px 15px;
 }
 
 .carousel-promo .carousel-promo-indicator {
-  width: 12px;
-  height: 12px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
-  border: 2px solid #fff;
-  background: transparent;
+  border: none;
+  background: #fff;
   padding: 0;
   cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.carousel-promo .carousel-promo-indicator:hover {
-  background: rgb(255 255 255 / 50%);
+  transition: width 0.2s ease, height 0.2s ease;
 }
 
 .carousel-promo .carousel-promo-indicator.active {
-  background: #fff;
+  width: 16px;
+  height: 16px;
   cursor: default;
 }
 
-/* Desktop: side-by-side image + content, show arrows */
+/* Desktop: side-by-side, show arrows */
 @media (width >= 900px) {
   .carousel-promo .carousel-promo-prev,
   .carousel-promo .carousel-promo-next {
     display: block;
-    margin: 0 8px;
   }
 
   .carousel-promo .carousel-promo-slide {
     flex-direction: row;
-    min-height: 380px;
+    min-height: 420px;
   }
 
   .carousel-promo .carousel-promo-slide-image {
-    flex: 0 0 45%;
+    flex: 0 0 50%;
     position: relative;
     overflow: hidden;
   }
@@ -220,17 +234,15 @@
   .carousel-promo .carousel-promo-slide-content {
     flex: 1;
     padding: 40px 48px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
   }
 
-  .carousel-promo .carousel-promo-slide-content img {
+  .carousel-promo .carousel-promo-slide-content p img {
     max-height: 48px;
   }
 
   .carousel-promo .carousel-promo-slide-content h2 {
-    font-size: 32px;
+    font-size: 40px;
+    line-height: 52px;
   }
 
   .carousel-promo .carousel-promo-slide-content p {
