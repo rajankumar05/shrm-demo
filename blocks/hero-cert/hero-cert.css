@@ -1,4 +1,4 @@
-/* Hero Cert - Green gradient, image left, white text right */
+/* Hero Cert - Green gradient, image left 50%, white text right 50% */
 .hero-cert-container .hero-cert-wrapper {
   max-width: unset;
   padding: 0;
@@ -8,14 +8,16 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  background: linear-gradient(135deg, #687849, #4c5f27);
+  background: linear-gradient(rgb(104 120 73), rgb(76 95 39));
   overflow: hidden;
+  color: #fff;
 }
 
 /* Image column */
 .hero-cert .hero-cert-image {
   width: 100%;
   line-height: 0;
+  overflow: hidden;
 }
 
 .hero-cert .hero-cert-image img {
@@ -23,77 +25,82 @@
   height: 100%;
   min-height: 240px;
   object-fit: cover;
+  object-position: 50% 0%;
   display: block;
 }
 
-/* Content column - white text */
+/* Content column */
 .hero-cert .hero-cert-content {
   padding: 32px 24px;
 }
 
 .hero-cert .hero-cert-content h2 {
   color: #fff;
-  font-size: var(--heading-font-size-xl);
+  font-size: 28px;
   font-weight: 700;
-  line-height: 1.2;
-  margin-top: 0;
-  margin-bottom: 16px;
+  line-height: 1.22;
+  margin: 0 0 16px;
 }
 
 .hero-cert .hero-cert-content p {
-  color: rgb(255 255 255 / 90%);
-  font-size: var(--body-font-size-s);
-  line-height: 1.6;
-  margin-top: 0;
-  margin-bottom: 12px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  margin: 0 0 16px;
 }
 
 .hero-cert .hero-cert-content a:any-link {
   color: #fff;
+  text-decoration: underline;
 }
 
-/* CTA buttons - white filled primary, white outline secondary */
+/* Button container spacing */
 .hero-cert .button-container {
   display: inline-block;
   margin-right: 8px;
-  margin-bottom: 8px;
+  margin-top: 8px;
 }
 
+/* Learn More - white filled, dark text, 20px font */
 .hero-cert a.button:any-link {
   background-color: #fff;
-  border-color: #fff;
-  color: #000;
+  border: 0 none;
+  color: #222;
   font-weight: 600;
-  padding: 12px 28px;
-  border-radius: var(--button-border-radius, 8px);
-}
-
-.hero-cert a.button:hover {
-  background-color: rgb(255 255 255 / 85%);
-  border-color: rgb(255 255 255 / 85%);
-  color: #000;
+  font-size: 20px;
+  line-height: 28px;
+  padding: 10px 24px;
+  border-radius: 8px;
+  text-decoration: none;
 }
 
 .hero-cert a.button:any-link::after {
   content: '\203A';
   margin-left: 8px;
-  font-size: 1.3em;
+  font-size: 1.2em;
   line-height: 0;
 }
 
-/* Second button - white outline */
+.hero-cert a.button:hover {
+  background-color: rgb(255 255 255 / 85%);
+  color: #222;
+}
+
+/* What HR Pros Are Saying - white outline, white text */
 .hero-cert .button-container:last-of-type a.button:any-link {
   background-color: transparent;
-  border: 2px solid #fff;
+  border: 1px solid #fff;
   color: #fff;
 }
 
 .hero-cert .button-container:last-of-type a.button:hover {
   background-color: rgb(255 255 255 / 15%);
   border-color: #fff;
+  color: #fff;
 }
 
-/* Desktop - two columns: image 40% left, text 60% right */
+/* Desktop - two columns: image 50% left, text 50% right */
 @media (width >= 900px) {
   .hero-cert {
     flex-direction: row;
@@ -101,7 +108,7 @@
   }
 
   .hero-cert .hero-cert-image {
-    flex: 0 0 40%;
+    flex: 1 1 50%;
     position: relative;
   }
 
@@ -112,18 +119,15 @@
   }
 
   .hero-cert .hero-cert-content {
-    flex: 0 0 60%;
+    flex: 0 1 auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 48px 56px 48px 48px;
+    padding: 48px 48px 48px 40px;
   }
 
   .hero-cert .hero-cert-content h2 {
     font-size: 36px;
-  }
-
-  .hero-cert .hero-cert-content p {
-    font-size: 18px;
+    line-height: 44px;
   }
 }
