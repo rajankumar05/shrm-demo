@@ -1,4 +1,4 @@
-/* Hero CTA - BEAM Framework CTA section with dark blue overlay */
+/* Hero CTA - BEAM Framework dark section, left-aligned, full-width */
 .hero-cta-container .hero-cta-wrapper {
   max-width: unset;
   padding: 0;
@@ -8,110 +8,129 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 40px 24px;
-  min-height: 250px;
-  background: rgb(27 60 105 / 90%);
+  align-items: flex-start;
+  text-align: left;
+  padding: 48px 24px;
+  background: var(--color-secondary, #1b3c69);
+  background-image:
+    linear-gradient(
+      135deg,
+      rgb(27 60 105 / 95%) 0%,
+      rgb(65 49 214 / 60%) 100%
+    );
   overflow: hidden;
 }
 
-.hero-cta picture {
-  position: absolute;
-  z-index: -1;
-  inset: 0;
+/* BEAM logo icon */
+.hero-cta .hero-cta-icon {
+  margin-bottom: 24px;
 }
 
-.hero-cta img {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
+.hero-cta .hero-cta-icon img {
+  width: 140px;
+  height: auto;
+  display: block;
 }
 
-.hero-cta > div {
-  position: relative;
-  z-index: 1;
-  max-width: var(--container-max-width);
-  width: 100%;
+/* Content area */
+.hero-cta .hero-cta-content {
+  max-width: 100%;
 }
 
-.hero-cta h1,
-.hero-cta h2,
-.hero-cta h3,
-.hero-cta h4,
-.hero-cta h5,
-.hero-cta h6 {
-  color: var(--text-color-inverse);
-  margin-top: 0;
-}
-
+/* Heading */
 .hero-cta h2 {
+  color: #fff;
   font-size: var(--heading-font-size-xl);
   font-weight: 700;
   line-height: 1.2;
+  margin-top: 0;
   margin-bottom: 16px;
 }
 
-.hero-cta p {
-  color: var(--text-color-inverse);
+/* Description text */
+.hero-cta p,
+.hero-cta .hero-cta-content > div {
+  color: rgb(255 255 255 / 90%);
   font-size: var(--body-font-size-m);
   line-height: 1.6;
-  margin-bottom: 12px;
+  margin-top: 0;
+  margin-bottom: 20px;
 }
 
-.hero-cta .icon {
-  width: 48px;
-  height: 48px;
-  margin-bottom: 16px;
-}
-
-.hero-cta .icon img {
-  width: 100%;
-  height: 100%;
-  filter: brightness(0) invert(1);
-}
-
-/* Outline white button for CTA */
+/* Learn More - white outline button with right arrow */
 .hero-cta a.button:any-link,
-.hero-cta a.button.secondary {
-  border: 2px solid var(--text-color-inverse);
+.hero-cta a.button.primary:any-link,
+.hero-cta a.button.secondary:any-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 2px solid #fff;
   background-color: transparent;
-  color: var(--text-color-inverse);
-  font-weight: var(--button-font-weight);
+  color: #fff;
+  font-weight: 600;
+  font-size: var(--body-font-size-s);
+  padding: 12px 28px;
+  border-radius: var(--button-border-radius, 8px);
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.hero-cta a.button:any-link::after {
+  content: '\203A';
+  font-size: 1.4em;
+  line-height: 0;
 }
 
 .hero-cta a.button:hover,
+.hero-cta a.button.primary:hover,
 .hero-cta a.button.secondary:hover {
-  background-color: rgb(255 255 255 / 15%);
-  border-color: var(--text-color-inverse);
-  color: var(--text-color-inverse);
+  background-color: #fff;
+  border-color: #fff;
+  color: var(--color-secondary, #1b3c69);
 }
 
-.hero-cta a.button.primary {
-  border-color: var(--text-color-inverse);
-  background-color: var(--text-color-inverse);
-  color: var(--color-secondary);
+.hero-cta .button-container {
+  margin-top: 8px;
 }
 
-.hero-cta a.button.primary:hover {
-  background-color: var(--ice-blue);
-  border-color: var(--ice-blue);
-}
-
-@media (width >= 900px) {
+/* Tablet */
+@media (width >= 600px) {
   .hero-cta {
-    padding: 60px 24px;
-    min-height: 300px;
+    padding: 56px 32px;
+  }
+
+  .hero-cta .hero-cta-icon img {
+    width: 180px;
   }
 
   .hero-cta h2 {
-    font-size: 36px;
+    font-size: 32px;
+  }
+}
+
+/* Desktop - content takes ~60% left, rest is open space */
+@media (width >= 900px) {
+  .hero-cta {
+    padding: 72px 32px;
+    min-height: 340px;
   }
 
-  .hero-cta p {
-    max-width: 680px;
-    margin-left: auto;
-    margin-right: auto;
+  .hero-cta .hero-cta-icon,
+  .hero-cta .hero-cta-content {
+    max-width: 580px;
+    margin-left: calc((100% - var(--container-max-width, 1200px)) / 2 + 32px);
+  }
+
+  .hero-cta .hero-cta-icon img {
+    width: 220px;
+  }
+
+  .hero-cta h2 {
+    font-size: 38px;
+  }
+
+  .hero-cta p,
+  .hero-cta .hero-cta-content > div {
+    font-size: 20px;
   }
 }

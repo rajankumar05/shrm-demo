@@ -1,16 +1,21 @@
-/* Tabs Benefits - Vertical tabs with content panel */
+/* Tabs Benefits - Vertical tab list on left, content panel on right */
 .tabs-benefits {
   display: flex;
   flex-direction: column;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--background-color);
 }
 
+/* Tab list - horizontal scroll on mobile */
 .tabs-benefits .tabs-benefits-list {
   display: flex;
   gap: 0;
   overflow-x: auto;
   padding: 0;
-  margin: 0 0 24px;
-  list-style: none;
+  margin: 0;
+  background: var(--light-color);
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
@@ -19,7 +24,9 @@
   display: none;
 }
 
+/* Tab buttons */
 .tabs-benefits .tabs-benefits-tab {
+  flex: 0 0 auto;
   padding: 14px 20px;
   border: none;
   border-bottom: 3px solid transparent;
@@ -28,95 +35,140 @@
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-s);
   font-weight: 600;
-  color: var(--text-color);
+  color: var(--color-primary, #3375b8);
   white-space: nowrap;
-  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  text-align: left;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .tabs-benefits .tabs-benefits-tab:hover {
-  background: var(--ice-blue);
-  color: var(--color-primary);
+  background: var(--ice-blue, #ebf4fa);
 }
 
 .tabs-benefits .tabs-benefits-tab[aria-selected="true"] {
-  border-bottom-color: var(--color-primary);
+  border-bottom-color: var(--color-primary, #3375b8);
   background: var(--background-color);
   font-weight: 700;
-  color: var(--color-primary);
+  color: var(--color-primary, #3375b8);
 }
 
+/* Panel */
 .tabs-benefits .tabs-benefits-panel {
-  padding: 24px 0;
-  background: var(--background-color);
+  padding: 24px;
 }
 
 .tabs-benefits .tabs-benefits-panel[aria-hidden="true"] {
   display: none;
 }
 
-.tabs-benefits .tabs-benefits-panel h2,
-.tabs-benefits .tabs-benefits-panel h3,
-.tabs-benefits .tabs-benefits-panel h4 {
-  margin-top: 0;
-  color: var(--text-color-dark);
+/* Panel grid - image left, text right */
+.tabs-benefits .tabs-benefits-panel-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.tabs-benefits .tabs-benefits-panel p {
-  font-size: var(--body-font-size-s);
-  color: var(--text-color);
-  line-height: 1.6;
+/* Panel image */
+.tabs-benefits .tabs-benefits-panel-image {
+  width: 100%;
 }
 
-.tabs-benefits .tabs-benefits-panel img {
-  max-width: 100%;
+.tabs-benefits .tabs-benefits-panel-image img {
+  width: 100%;
   height: auto;
   border-radius: 8px;
-  margin-bottom: 16px;
+  display: block;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
 }
 
-.tabs-benefits .tabs-benefits-panel a.button:any-link {
-  margin-top: 16px;
+.tabs-benefits .tabs-benefits-panel-image p {
+  margin: 0;
+  line-height: 0;
 }
 
+/* Panel text */
+.tabs-benefits .tabs-benefits-panel-text h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: var(--heading-font-size-s);
+  font-weight: 700;
+  color: var(--text-color-dark, #222);
+}
+
+.tabs-benefits .tabs-benefits-panel-text p {
+  font-size: var(--body-font-size-s);
+  color: var(--text-color, #212529);
+  line-height: 1.6;
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.tabs-benefits .tabs-benefits-panel-text a.button:any-link {
+  margin-top: 12px;
+  background-color: var(--color-primary, #3375b8);
+  border-color: var(--color-primary, #3375b8);
+  color: #fff;
+}
+
+.tabs-benefits .tabs-benefits-panel-text a.button:hover {
+  background-color: var(--color-secondary, #1b3c69);
+  border-color: var(--color-secondary, #1b3c69);
+}
+
+/* Desktop: vertical tabs on left, two-column panel on right */
 @media (width >= 900px) {
   .tabs-benefits {
     flex-direction: row;
-    gap: 0;
-    min-height: 400px;
+    min-height: 420px;
   }
 
+  /* Tab list - vertical column on left */
   .tabs-benefits .tabs-benefits-list {
     flex-direction: column;
-    min-width: 260px;
-    max-width: 300px;
-    margin: 0;
+    min-width: 280px;
+    max-width: 320px;
     overflow-x: visible;
     border-right: 1px solid #e0e0e0;
+    flex-shrink: 0;
   }
 
   .tabs-benefits .tabs-benefits-tab {
     border-bottom: none;
-    border-left: 3px solid transparent;
-    border-right: none;
-    text-align: left;
-    padding: 16px 24px;
+    border-left: 4px solid transparent;
+    padding: 20px 24px;
     font-size: var(--heading-font-size-xs);
+    white-space: normal;
   }
 
   .tabs-benefits .tabs-benefits-tab[aria-selected="true"] {
-    border-left-color: var(--color-primary);
-    border-bottom: none;
-    background: var(--background-color);
-    font-weight: 700;
-    color: var(--color-primary);
+    border-left-color: var(--color-primary, #3375b8);
+    border-bottom-color: transparent;
   }
 
-  .tabs-benefits .tabs-benefits-tab:hover {
-    background: var(--ice-blue);
-  }
-
+  /* Panel takes remaining space */
   .tabs-benefits .tabs-benefits-panel {
     flex: 1;
-    padding: 24px 32px;
+    padding: 32px;
+  }
+
+  /* Panel grid - image left, text right side by side */
+  .tabs-benefits .tabs-benefits-panel-grid {
+    flex-direction: row;
+    gap: 32px;
+    align-items: flex-start;
+  }
+
+  .tabs-benefits .tabs-benefits-panel-image {
+    flex: 0 0 280px;
+    max-width: 280px;
+  }
+
+  .tabs-benefits .tabs-benefits-panel-text {
+    flex: 1;
+  }
+
+  .tabs-benefits .tabs-benefits-panel-text h3 {
+    font-size: var(--heading-font-size-s);
   }
 }
