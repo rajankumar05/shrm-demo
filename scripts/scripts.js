@@ -132,9 +132,18 @@ export function decorateMain(main) {
  */
 async function loadEager(doc) {
   document.documentElement.lang = 'en';
+
+  // Add skip navigation for accessibility (WCAG 2.4.1)
+  const skipNav = document.createElement('a');
+  skipNav.href = '#main';
+  skipNav.className = 'skip-to-content';
+  skipNav.textContent = 'Skip to main content';
+  doc.body.prepend(skipNav);
+
   decorateTemplateAndTheme();
   const main = doc.querySelector('main');
   if (main) {
+    main.id = 'main';
     decorateMain(main);
     document.body.classList.add('appear');
     await loadSection(main.querySelector('.section'), waitForFirstImage);

@@ -51,7 +51,7 @@ footer .footer .columns > div > div {
 }
 
 /* Column headings - navy, 18px bold with separator */
-footer .footer h6 {
+footer .footer h2 {
   color: rgb(27 60 105);
   font-size: 18px;
   font-weight: 700;

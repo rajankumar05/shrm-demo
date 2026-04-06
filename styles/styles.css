@@ -107,6 +107,25 @@ body.appear {
   display: block;
 }
 
+/* Skip to content - accessibility (WCAG 2.4.1) */
+.skip-to-content {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  z-index: 100;
+  padding: 12px 24px;
+  background-color: var(--color-primary, #3375b8);
+  color: #fff;
+  font-weight: 600;
+  border-radius: var(--button-border-radius, 8px);
+  text-decoration: none;
+  transition: top 0.2s ease;
+}
+
+.skip-to-content:focus {
+  top: 16px;
+}
+
 header {
   height: var(--nav-height);
 }
