@@ -13,6 +13,7 @@
 .carousel-promo {
   position: relative;
   overflow: hidden;
+  border-radius: 15px;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -180,6 +181,7 @@
   align-items: center;
   gap: 12px;
   padding: 16px 0 24px;
+  background-color: #1b3c69;
 }
 
 .carousel-promo .carousel-promo-indicator {
