@@ -1,4 +1,4 @@
-/* Hero Business - SHRM Business hero with orange gradient, two-column layout */
+/* Hero Business - Orange gradient, image left 50%, white text right */
 .hero-business-container .hero-business-wrapper {
   max-width: unset;
   padding: 0;
@@ -8,117 +8,101 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: 0;
-  min-height: 280px;
-  background: linear-gradient(135deg, var(--color-accent-orange), #b2480c);
+  background: linear-gradient(rgb(217 90 18), rgb(178 72 12));
+  overflow: hidden;
+  color: #fff;
+}
+
+/* Image column */
+.hero-business .hero-business-image {
+  width: 100%;
+  line-height: 0;
   overflow: hidden;
 }
 
-.hero-business > div {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-.hero-business picture {
-  display: block;
-  line-height: 0;
-  width: 100%;
-}
-
-.hero-business img {
-  object-fit: cover;
+.hero-business .hero-business-image img {
   width: 100%;
   height: 100%;
-  min-height: 200px;
+  min-height: 240px;
+  object-fit: cover;
+  object-position: 50% 0%;
+  display: block;
 }
 
-.hero-business h1,
-.hero-business h2,
-.hero-business h3,
-.hero-business h4,
-.hero-business h5,
-.hero-business h6 {
-  color: var(--text-color-inverse);
-  margin-top: 0;
-}
-
-.hero-business h2 {
-  font-size: var(--heading-font-size-xl);
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 16px;
-}
-
-.hero-business p {
-  color: var(--text-color-inverse);
-  font-size: var(--body-font-size-m);
-  line-height: 1.6;
-  margin-bottom: 12px;
-}
-
-/* Text content area */
-.hero-business > div > div:last-child {
+/* Content column */
+.hero-business .hero-business-content {
   padding: 32px 24px;
 }
 
-.hero-business a.button.primary,
+.hero-business .hero-business-content h2 {
+  color: #fff;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.22;
+  margin: 0 0 16px;
+}
+
+.hero-business .hero-business-content p {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  margin: 0 0 16px;
+}
+
+/* Learn More CTA - white filled, dark text, 20px font */
 .hero-business a.button:any-link {
-  border-color: var(--text-color-inverse);
-  background-color: var(--text-color-inverse);
-  color: var(--color-accent-orange);
-  font-weight: var(--button-font-weight);
+  background-color: #fff;
+  border: 0 none;
+  color: #222;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 28px;
+  padding: 10px 24px;
+  border-radius: 8px;
+  text-decoration: none;
 }
 
-.hero-business a.button.primary:hover,
+.hero-business a.button:any-link::after {
+  content: '\203A';
+  margin-left: 8px;
+  font-size: 1.2em;
+  line-height: 0;
+}
+
 .hero-business a.button:hover {
-  background-color: var(--ice-blue);
-  border-color: var(--ice-blue);
-  color: var(--color-accent-orange);
+  background-color: rgb(255 255 255 / 85%);
+  color: #222;
 }
 
-.hero-business a.button.secondary {
-  border-color: var(--text-color-inverse);
-  background-color: transparent;
-  color: var(--text-color-inverse);
-}
-
-.hero-business a.button.secondary:hover {
-  background-color: rgb(255 255 255 / 15%);
-}
-
+/* Desktop - two columns: image 50% left, text auto right */
 @media (width >= 900px) {
   .hero-business {
-    min-height: 360px;
-  }
-
-  .hero-business > div {
     flex-direction: row;
-    align-items: stretch;
-    max-width: unset;
+    min-height: 400px;
   }
 
-  /* Image column - 40% */
-  .hero-business > div > div:first-child {
-    flex: 0 0 40%;
+  .hero-business .hero-business-image {
+    flex: 1 1 50%;
     position: relative;
   }
 
-  .hero-business > div > div:first-child picture {
+  .hero-business .hero-business-image img {
     position: absolute;
     inset: 0;
+    min-height: 100%;
   }
 
-  /* Text column - 60% */
-  .hero-business > div > div:last-child {
-    flex: 0 0 60%;
+  .hero-business .hero-business-content {
+    flex: 0 1 auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 48px 48px 48px 40px;
   }
 
-  .hero-business h2 {
+  .hero-business .hero-business-content h2 {
     font-size: 36px;
+    line-height: 44px;
   }
 }
