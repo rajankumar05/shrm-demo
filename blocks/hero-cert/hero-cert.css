@@ -62,7 +62,7 @@
 .hero-cert a.button:any-link {
   background-color: #fff;
   border-color: #fff;
-  color: #4c5f27;
+  color: #000;
   font-weight: 600;
   padding: 12px 28px;
   border-radius: var(--button-border-radius, 8px);
@@ -71,6 +71,7 @@
 .hero-cert a.button:hover {
   background-color: rgb(255 255 255 / 85%);
   border-color: rgb(255 255 255 / 85%);
+  color: #000;
 }
 
 .hero-cert a.button:any-link::after {
