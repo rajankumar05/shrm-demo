@@ -1,140 +1,65 @@
-/* Carousel Logos - Logo ticker with light ice blue background */
+/* Carousel Logos - auto-scrolling horizontal logo ticker */
 .carousel-logos-container .carousel-logos-wrapper {
   max-width: unset;
   padding: 0;
 }
 
 .carousel-logos {
-  position: relative;
   overflow: hidden;
-  background-color: var(--ice-blue);
-  padding: 20px 24px;
+  background-color: var(--ice-blue, #ebf4fa);
+  padding: 24px 0;
 }
 
-.carousel-logos .carousel-logos-slides-container {
-  position: relative;
-}
-
-.carousel-logos .carousel-logos-slides {
+/* Scrolling track */
+.carousel-logos .carousel-logos-track {
   display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  list-style: none;
-  margin: 0;
-  padding: 0;
   align-items: center;
-  gap: 24px;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+  gap: 48px;
+  width: max-content;
+  animation: ticker-scroll 30s linear infinite;
 }
 
-.carousel-logos .carousel-logos-slides::-webkit-scrollbar {
-  display: none;
-}
-
-.carousel-logos .carousel-logos-slide {
+/* Individual logo item */
+.carousel-logos .carousel-logos-item {
   flex: 0 0 auto;
-  scroll-snap-align: start;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 8px 16px;
 }
 
-.carousel-logos .carousel-logos-slide-image {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.carousel-logos .carousel-logos-slide-image picture {
-  display: block;
-  line-height: 0;
-}
-
-.carousel-logos .carousel-logos-slide-image img {
+.carousel-logos .carousel-logos-item img {
+  height: 40px;
   width: auto;
-  height: auto;
-  max-height: 48px;
-  max-width: 140px;
   object-fit: contain;
-  filter: grayscale(30%);
-  opacity: 0.85;
+  display: block;
+  filter: grayscale(100%);
+  opacity: 0.7;
   transition: filter 0.3s ease, opacity 0.3s ease;
 }
 
-.carousel-logos .carousel-logos-slide-image img:hover {
+.carousel-logos .carousel-logos-item img:hover {
   filter: grayscale(0%);
   opacity: 1;
 }
 
-.carousel-logos .carousel-logos-slide-content {
-  display: none;
-}
-
-/* Hide indicators for logo carousel */
-.carousel-logos .carousel-logos-slide-indicators {
-  display: none;
-}
-
-/* Navigation arrows */
-.carousel-logos .carousel-logos-navigation-buttons {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  padding: 0 4px;
-  box-sizing: border-box;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.carousel-logos .carousel-logos-navigation-buttons button {
-  pointer-events: auto;
-  width: 32px;
-  height: 32px;
-  border: none;
-  border-radius: 50%;
-  background: rgb(0 0 0 / 30%);
-  color: var(--text-color-inverse);
-  cursor: pointer;
-  font-size: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 0.2s ease;
-}
-
-.carousel-logos .carousel-logos-navigation-buttons button:hover {
-  background: rgb(0 0 0 / 50%);
-}
-
-@media (width >= 600px) {
-  .carousel-logos .carousel-logos-slide-image img {
-    max-height: 56px;
-    max-width: 160px;
+/* Infinite scroll keyframes */
+@keyframes ticker-scroll {
+  0% {
+    transform: translateX(0);
   }
 
-  .carousel-logos .carousel-logos-slides {
-    gap: 32px;
+  100% {
+    transform: translateX(-50%);
   }
 }
 
 @media (width >= 900px) {
   .carousel-logos {
-    padding: 30px 40px;
+    padding: 32px 0;
   }
 
-  .carousel-logos .carousel-logos-slide-image img {
-    max-height: 60px;
-    max-width: 180px;
+  .carousel-logos .carousel-logos-track {
+    gap: 56px;
   }
 
-  .carousel-logos .carousel-logos-slides {
-    gap: 48px;
-    justify-content: center;
+  .carousel-logos .carousel-logos-item img {
+    height: 48px;
   }
 }
