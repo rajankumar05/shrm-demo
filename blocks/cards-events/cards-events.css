@@ -53,21 +53,23 @@
   margin-top: 0;
 }
 
-/* Learn More text link style */
+/* Learn More CTA button - dark navy filled */
 .cards-events .cards-events-card-body a.button:any-link {
-  background: none;
-  border: none;
-  padding: 0;
-  color: var(--link-color);
+  background-color: var(--color-secondary, #1b3c69);
+  border-color: var(--color-secondary, #1b3c69);
+  color: #fff;
   font-weight: 600;
-  font-size: var(--body-font-size-s);
-  text-decoration: none;
-  display: inline;
+  font-size: var(--body-font-size-xs);
+  padding: 8px 20px;
+  border-radius: var(--button-border-radius, 8px);
+  display: inline-flex;
+  margin-top: 8px;
 }
 
 .cards-events .cards-events-card-body a.button:hover {
-  color: var(--link-hover-color);
-  text-decoration: underline;
+  background-color: var(--color-primary, #3375b8);
+  border-color: var(--color-primary, #3375b8);
+  color: #fff;
 }
 
 @media (width >= 600px) {
