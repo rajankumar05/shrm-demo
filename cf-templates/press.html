@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{properties.title}}</title>
+  </head>
+  <body>
+    <header></header>
+    <main>
+      <div>
+        <div class="hero">
+          <div>
+            <div>
+              <p>
+                <picture>
+                  <img src="{{{properties.elements.leftImage.value}}}">
+                </picture>
+              </p>
+              <h1>{{properties.elements.newsTitle.value}}</h1>
+            </div>
+          </div>
+        </div>
+        <p><strong>Author:</strong> {{properties.elements.author.value}}</p>
+        <div class="columns">
+          <div>
+            <div>
+              <p>
+                <picture>
+                  <img src="{{{properties.elements.rightImage.value}}}">
+                </picture>
+              </p>
+            </div>
+            <div>
+              <p>{{{properties.elements.newsDetails.value}}}</p>
+            </div>
+            <div>
+              <p>
+                <picture>
+                  <img src="{{{properties.elements.additionalImage.value}}}">
+                </picture>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer></footer>
+  </body>
+</html>
